@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  /* color: rgb(188, 175, 111); */
+  background-color: rgb(188, 175, 111);
+  height: 100vh;
+  width: 100vw;
 }
 
 .App-logo {
@@ -35,4 +45,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Main-Container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  /* color: rgb(188, 175, 111); */
+  background-color: rgb(188, 175, 111);
+  height: 100vh;
+}
+
+.Main-Header {
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(188, 175, 111);
+  padding-bottom: 10%;
+}
+
+.Main-Text-Entry-Box {
+  width: 600px;
+  height: 20%;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(188, 175, 111);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.Main-Form-Width {
+  width: 600px;
+  height: 20%;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(188, 175, 111);
+  /* border: 2px solid rgb(0, 0, 0); */
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.Main-Submit-Button-Frame {
+  padding-top: 10px;
+
+}
+
+.Main-Submit-Button {
+  background-color: #61dafb;
+  color: #61dafb;
 }
