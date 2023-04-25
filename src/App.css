@@ -1,105 +1,45 @@
-.App {
-  text-align: center;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: rgb(188, 175, 111); */
-  background-color: rgb(188, 175, 111);
-  height: 100vh;
-  width: 100vw;
+.PageBackground {
+    background-color: #25b3719b;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.PageHeaderBar {
+    background-color: #25b371;
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-bottom: 1px solid #1c4130;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PageHeader {
+    color: #ffffff;
+    font-size: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 4vh;
+    padding-left: 2vw;
+    /* align-items: center; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.Main-Container {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: rgb(188, 175, 111); */
-  background-color: rgb(188, 175, 111);
-  height: 100vh;
-}
-
-.Main-Header {
-  font-size: 50px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(188, 175, 111);
-  padding-bottom: 10%;
-}
-
-.Main-Text-Entry-Box {
-  width: 600px;
-  height: 20%;
-  font-size: 20px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(188, 175, 111);
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  padding-left: 10px;
-}
-
-.Main-Form-Width {
-  width: 600px;
-  height: 20%;
-  font-size: 20px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(188, 175, 111);
-  /* border: 2px solid rgb(0, 0, 0); */
-  border-radius: 5px;
-  padding-left: 10px;
-}
-
-.Main-Submit-Button-Frame {
-  padding-top: 10px;
-
-}
-
-.Main-Submit-Button {
-  background-color: #61dafb;
-  color: #61dafb;
+.KPITile {
+    background-color: #ffffff;
+    height: 20vh;
+    width: 20vw;
+    margin: 2vw;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 4vh;
 }
