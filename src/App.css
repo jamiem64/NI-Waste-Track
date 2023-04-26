@@ -12,7 +12,7 @@
     background-color: #25b371;
     height: 10vh;
     width: 100vw;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     z-index: 1;
@@ -22,24 +22,180 @@
 .PageHeader {
     color: #ffffff;
     font-size: 2.5em;
-    font-family: 'Roboto', sans-serif;
+    font-family: FF Kava, sans-serif;
     font-weight: 500;
     margin: 0;
     padding: 0;
     padding-top: 4vh;
     padding-left: 2vw;
+    /* font: 2.5em 'FF', sans-serif; */
     /* align-items: center; */
+}
+
+.small-tile-row-3 {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100vw;
+    padding-top: 5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    /* position: absolute; */
+    /* top: 10vh; */
+    /* left: 0; */
+    /* z-index: 1; */
+}
+
+.large-tile-row-2 {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100vw;
+  padding-top: 5vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
 }
 
 .KPITile {
     background-color: #ffffff;
     height: 20vh;
-    width: 20vw;
-    margin: 2vw;
-    border-radius: 10px;
+    width: 40vh;
+    /* margin: 2vw; */
+    /* border-radius: 10px; */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    padding-top: 4vh;
+    
+    /* padding-top: 4vh; */
 }
+
+.ControlPanelKPIRow {
+    display: flex;
+    padding-top: 2%;
+}
+
+.ControlPanelKPIRowLeft {
+    width: 25%;
+}
+
+.ControlPanelKPIRowRight {
+    width: 75%;
+}
+
+.ControlPanel {
+    background-color: #ffffff;
+    height: 30vh;
+    width: 20vw;
+    margin-left: 2vw;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    /* padding-top: 4vh; */
+    border-radius: 15px;
+}
+
+.NewControlPanel {
+    background-color: #ffffff;
+    height: 50vh;
+    width: 20vw;
+    margin-left: 2vw;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    /* padding-top: 4vh; */
+    border-radius: 15px;
+}
+
+.ControlPanelTitle {
+    color: #25b371;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: left;
+}
+
+.TileTitle {
+    color: #25b371;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: left;
+}
+
+.KPITileText {
+    color: #25b371;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: center;
+    align-items: center;
+    /* padding-left: 5px; */
+}
+
+.ControlPanelFilterText {
+    /* color: #25b371; */
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: center;
+    align-items: center;
+    /* padding-left: 5px; */
+}
+
+.ControlPanelFilterPanel {
+    /* color: #25b371; */
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: center;
+    align-items: center;
+    /* padding-left: 5px; */
+}
+
+.ChartContainer {
+    width: 70%;
+    margin: auto;
+}
+
+.SubmitButtonPanel {
+    /* color: #25b371; */
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 1vh;
+    text-align: left;
+    align-items: left;
+    padding-top:40px;
+    color: #ffffff;
+    /* padding-left: 5px; */
+}
+
+/* .PieChart {
+    z-index: 0;
+    position:relative;
+} */
