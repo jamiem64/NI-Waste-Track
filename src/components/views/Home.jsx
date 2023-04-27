@@ -5,9 +5,10 @@ import { CCard, CCardBody, CCardHeader, CCol, CRow, CDropdown,
 import "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/App.css";
 import '@coreui/coreui/dist/css/coreui.min.css';
 
-import StackedBarChart from "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx";
+import BarChart from "../charts/BarChart.jsx";
 // "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx"
 import PieChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/PieChart.jsx';
+import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart';
 
 import kpi_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/kpi_json_file.json';
 import selectable_fin_years from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/selectable_fin_years.json';
@@ -24,13 +25,16 @@ function Home() {
   const [kpiValue1, setKpiValue1] = React.useState(0);
   const [kpiValue2, setKpiValue2] = React.useState(0);
   const [kpiValue3, setKpiValue3] = React.useState(0);
+  const [kpiValue4, setKpiValue4] = React.useState(0);
 
-  const [kpiValue4Min, setKpiValue4Min] = React.useState("");
-  const [kpiValue4Max, setKpiValue4Max] = React.useState("");
   const [kpiValue5Min, setKpiValue5Min] = React.useState("");
   const [kpiValue5Max, setKpiValue5Max] = React.useState("");
   const [kpiValue6Min, setKpiValue6Min] = React.useState("");
   const [kpiValue6Max, setKpiValue6Max] = React.useState("");
+  const [kpiValue7Min, setKpiValue7Min] = React.useState("");
+  const [kpiValue7Max, setKpiValue7Max] = React.useState("");
+  const [kpiValue8Min, setKpiValue8Min] = React.useState("");
+  const [kpiValue8Max, setKpiValue8Max] = React.useState("");
 
   const [chart1Values, setChart1Values] = React.useState([]);
   const [chart1Labels, setChart1Labels] = React.useState([]);
@@ -43,6 +47,10 @@ function Home() {
 
   const [chart4Values, setChart4Values] = React.useState([]);
   const [chart4Labels, setChart4Labels] = React.useState([]);
+
+  const [chart5RecycleValues, setChart5RecycleValues] = React.useState([]);
+  const [chart5LandfillValues, setChart5LandfillValues] = React.useState([]);
+  const [chart5Labels, setChart5Labels] = React.useState([]);
 
 
   // const [chartData, setChartData] = React.useState({
@@ -67,12 +75,17 @@ function Home() {
     setKpiValue1(kpi_json_file.kpi_1_output.values[finYearsSelected]);
     setKpiValue2(kpi_json_file.kpi_2_output.values[finYearsSelected]);
     setKpiValue3(kpi_json_file.kpi_3_output.values[finYearsSelected]);
-    setKpiValue4Min(kpi_json_file.kpi_4_output.min_values[finYearsSelected]);
-    setKpiValue4Max(kpi_json_file.kpi_4_output.max_values[finYearsSelected]);
+    setKpiValue4(kpi_json_file.kpi_4_output.values[finYearsSelected]);
+    // setKpiValue4Min(kpi_json_file.kpi_4_output.min_values[finYearsSelected]);
+    // setKpiValue4Max(kpi_json_file.kpi_4_output.max_values[finYearsSelected]);
     setKpiValue5Min(kpi_json_file.kpi_5_output.min_values[finYearsSelected]);
     setKpiValue5Max(kpi_json_file.kpi_5_output.max_values[finYearsSelected]);
     setKpiValue6Min(kpi_json_file.kpi_6_output.min_values[finYearsSelected]);
     setKpiValue6Max(kpi_json_file.kpi_6_output.max_values[finYearsSelected]);
+    setKpiValue7Min(kpi_json_file.kpi_7_output.min_values[finYearsSelected]);
+    setKpiValue7Max(kpi_json_file.kpi_7_output.max_values[finYearsSelected]);
+    setKpiValue8Min(kpi_json_file.kpi_8_output.min_values[finYearsSelected]);
+    setKpiValue8Max(kpi_json_file.kpi_8_output.max_values[finYearsSelected]);
 
     setChart1Values(chart_json_file.chart_1[finYearsSelected].values);
     setChart1Labels(chart_json_file.chart_1[finYearsSelected].labels);
@@ -82,6 +95,11 @@ function Home() {
     setChart3Labels(chart_json_file.chart_3[finYearsSelected].labels);
     setChart4Values(chart_json_file.chart_4[finYearsSelected].values);
     setChart4Labels(chart_json_file.chart_4[finYearsSelected].labels);
+
+    setChart5RecycleValues(chart_json_file.chart_5[finYearsSelected].recycle_values);
+    setChart5LandfillValues(chart_json_file.chart_5[finYearsSelected].landfill_values);
+    setChart5Labels(chart_json_file.chart_5[finYearsSelected].labels);
+
   }, [finYearsSelected]);
 
     return (
@@ -122,21 +140,21 @@ function Home() {
                   <CRow>
                     <CCol>
                       <CCard className='KPITile'>
-                        <CCardHeader className='TileTitle'>Avg. Recycle Rate % (Household)</CCardHeader>
+                        <CCardHeader className='TileTitle'>Avg. Recycle Rate % - Household</CCardHeader>
                         <CCardBody className='KPITileText'>
                           <div className='KPIValue'>{kpiValue1}%</div>
-                          <div className='KPITextMax'>{kpiValue4Max}</div>
-                          <div className='KPITextMin'>{kpiValue4Min}</div>
+                          <div className='KPITextMax'>{kpiValue5Max}</div>
+                          <div className='KPITextMin'>{kpiValue5Min}</div>
                         </CCardBody>
                       </CCard>
                     </CCol>
                     <CCol>
                       <CCard className='KPITile'>
-                        <CCardHeader className='TileTitle'>Avg. Recycle Rate % (Local Authority)</CCardHeader>
+                        <CCardHeader className='TileTitle'>Avg. Recycle Rate % - Local Authority</CCardHeader>
                         <CCardBody className='KPITileText'>
                           <div className='KPIValue'>{kpiValue2}%</div>
-                          <div className='KPITextMax'>{kpiValue5Max}</div>
-                          <div className='KPITextMin'>{kpiValue5Min}</div>
+                          <div className='KPITextMax'>{kpiValue6Max}</div>
+                          <div className='KPITextMin'>{kpiValue6Min}</div>
                         </CCardBody>
                         
                       </CCard>
@@ -146,8 +164,18 @@ function Home() {
                         <CCardHeader className='TileTitle'>Landfill Waste Per Household (Tonnes)</CCardHeader>
                         <CCardBody className='KPITileText'>
                           <div className='KPIValue'>{kpiValue3}</div>
-                          <div className='KPITextMax'>{kpiValue6Max}</div>
-                          <div className='KPITextMin'>{kpiValue6Min}</div>
+                          <div className='KPITextMax'>{kpiValue7Max}</div>
+                          <div className='KPITextMin'>{kpiValue7Min}</div>
+                        </CCardBody>
+                      </CCard>
+                    </CCol>
+                    <CCol>
+                      <CCard className='KPITile'>
+                        <CCardHeader className='TileTitle'>Landfill Waste per capita (Tonnes)</CCardHeader>
+                        <CCardBody className='KPITileText'>
+                          <div className='KPIValue'>{kpiValue4}</div>
+                          <div className='KPITextMax'>{kpiValue8Max}</div>
+                          <div className='KPITextMin'>{kpiValue8Min}</div>
                         </CCardBody>
                       </CCard>
                     </CCol>
@@ -162,7 +190,7 @@ function Home() {
                     <CCard>
                       <CCardHeader className='TileTitle'>Recycle rate (%) by Local Authority</CCardHeader>
                       <CCardBody className='ChartContainer'>
-                        <StackedBarChart 
+                        <BarChart 
                           // chartData={chartData}
                           chartTitle='Recycle Rate (%)'
                           chartValues={chart1Values}
@@ -191,7 +219,7 @@ function Home() {
                     <CCard>
                       <CCardHeader className='TileTitle'>Recycle rate (%) by Household</CCardHeader>
                         <CCardBody className='ChartContainer'>
-                          <StackedBarChart
+                          <BarChart
                             // <StackedBarChart 
                             // chartData={chartData}
                             chartTitle='Recycle Rate (%)'
@@ -211,6 +239,36 @@ function Home() {
                           />
                         </CCardBody>
                     </CCard>
+                  </CCol>
+                </CRow>
+              </div>
+
+              <div className='large-tile-row-2'>
+                <CRow>
+                  <CCol>
+                    <CCard>
+                      <CCardHeader className='TileTitle'>Recycle rate (%) by Household</CCardHeader>
+                        <CCardBody className='ChartContainer'>
+                          <StackedBarChart
+                            chartTitle1='Recycled (Tonnes)'
+                            chartValues1={chart5RecycleValues}
+                            chartTitle2='Landfill (Tonnes)'
+                            chartValues2={chart5LandfillValues}
+                            chartLabels={chart5Labels}
+                          />
+                      </CCardBody>
+                    </CCard>
+                  </CCol>
+                  <CCol>
+                    {/* <CCard>
+                      <CCardHeader className='TileTitle'>Destination of Annual Waste - Household (Tonnes)</CCardHeader>
+                        <CCardBody className='ChartContainer'>
+                          <PieChart 
+                            chartData={chart4Values}
+                            chartLabels={chart4Labels}
+                          />
+                        </CCardBody>
+                    </CCard> */}
                   </CCol>
                 </CRow>
               </div>
