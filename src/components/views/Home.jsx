@@ -52,14 +52,9 @@ function Home() {
   const [chart5LandfillValues, setChart5LandfillValues] = React.useState([]);
   const [chart5Labels, setChart5Labels] = React.useState([]);
 
-
-  // const [chartData, setChartData] = React.useState({
-  //   labels: ['Antrim and Newtownabbey', 'Ards and North Down', 'Armagh, Banbridge and Craigavon'],
-  //   datasets: {
-  //     'Recycled': [44.3, 50.8, 55.7],
-  //     'Landfill': [55.7, 49.2, 44.3]
-  //   }
-  // });
+  const [chart6RecycleValues, setChart6RecycleValues] = React.useState([]);
+  const [chart6LandfillValues, setChart6LandfillValues] = React.useState([]);
+  const [chart6Labels, setChart6Labels] = React.useState([]);
 
   useEffect (() => {
     if (finYearsItems.length === 0) {
@@ -99,6 +94,10 @@ function Home() {
     setChart5RecycleValues(chart_json_file.chart_5[finYearsSelected].recycle_values);
     setChart5LandfillValues(chart_json_file.chart_5[finYearsSelected].landfill_values);
     setChart5Labels(chart_json_file.chart_5[finYearsSelected].labels);
+
+    setChart6RecycleValues(chart_json_file.chart_6.recycle_values);
+    setChart6LandfillValues(chart_json_file.chart_6.landfill_values);
+    setChart6Labels(chart_json_file.chart_6.labels);
 
   }, [finYearsSelected]);
 
@@ -247,7 +246,7 @@ function Home() {
                 <CRow>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Recycle rate (%) by Household</CCardHeader>
+                      <CCardHeader className='TileTitle'>Recycled vs Landfill waste by Household (Tonnes)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <StackedBarChart
                             chartTitle1='Recycled (Tonnes)'
@@ -260,18 +259,22 @@ function Home() {
                     </CCard>
                   </CCol>
                   <CCol>
-                    {/* <CCard>
-                      <CCardHeader className='TileTitle'>Destination of Annual Waste - Household (Tonnes)</CCardHeader>
+                    <CCard>
+                      <CCardHeader className='TileTitle'>Recycled vs Landfill waste by Household Over Time (Tonnes)</CCardHeader>
                         <CCardBody className='ChartContainer'>
-                          <PieChart 
-                            chartData={chart4Values}
-                            chartLabels={chart4Labels}
+                          <StackedBarChart
+                            chartTitle1='Avg. Recycled (Tonnes)'
+                            chartValues1={chart6RecycleValues}
+                            chartTitle2='Avg. Landfill (Tonnes)'
+                            chartValues2={chart6LandfillValues}
+                            chartLabels={chart6Labels}
                           />
                         </CCardBody>
-                    </CCard> */}
+                    </CCard>
                   </CCol>
                 </CRow>
               </div>
+              
 
         </div>
    
