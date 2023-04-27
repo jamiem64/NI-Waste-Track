@@ -138,15 +138,36 @@
 
 .KPITileText {
     color: #25b371;
-    font-size: 1.5em;
+    /* font-size: 1.5em;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+    font-weight: 500; */
     margin: 0;
     padding: 0;
     padding-top: 1vh;
     text-align: center;
     align-items: center;
     /* padding-left: 5px; */
+}
+
+.KPIValue {
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding-bottom: 80px;
+}
+
+.KPITextMax {
+    color: #25b371;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.KPITextMin {
+    color: #c82020;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
 .ControlPanelFilterText {
