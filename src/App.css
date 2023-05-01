@@ -62,7 +62,7 @@
 .KPITile {
     /* background-color: #ffffff; */
     height: 20vh;
-    width: 38vh;
+    /* width: 38vh; */
     /* margin: 2vw; */
     /* border-radius: 10px; */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -75,6 +75,11 @@
 
 .ControlPanelKPIRow {
     display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100vw; */
     padding-top: 2%;
 }
 

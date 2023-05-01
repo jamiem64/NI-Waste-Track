@@ -8,7 +8,9 @@ import '@coreui/coreui/dist/css/coreui.min.css';
 import BarChart from "../charts/BarChart.jsx";
 // "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx"
 import PieChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/PieChart.jsx';
-import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart';
+import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx';
+import CompareBarChart from '../charts/CompareBarChart.jsx';
+import WasteDestBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/WasteDestBar.jsx';
 
 import kpi_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/kpi_json_file.json';
 import selectable_fin_years from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/selectable_fin_years.json';
@@ -36,25 +38,35 @@ function Home() {
   const [kpiValue8Min, setKpiValue8Min] = React.useState("");
   const [kpiValue8Max, setKpiValue8Max] = React.useState("");
 
-  const [chart1Values, setChart1Values] = React.useState([]);
+  const [chart1LAValues, setChart1LAValues] = React.useState([]);
+  const [chart1HHValues, setChart1HHValues] = React.useState([]);
   const [chart1Labels, setChart1Labels] = React.useState([]);
 
-  const [chart2Values, setChart2Values] = React.useState([]);
+  const [chart2LAReuseValues, setChart2LAReuseValues] = React.useState([]);
+  const [chart2HHReuseValues, setChart2HHReuseValues] = React.useState([]);
+  const [chart2LADryRecycleValues, setChart2LADryRecycleValues] = React.useState([]);
+  const [chart2HHDryRecycleValues, setChart2HHDryRecycleValues] = React.useState([]);
+  const [chart2LACompostValues, setChart2LACompostValues] = React.useState([]);
+  const [chart2HHCompostValues, setChart2HHCompostValues] = React.useState([]);
+  const [chart2LALandfillValues, setChart2LALandfillValues] = React.useState([]);
+  const [chart2HHLandfillValues, setChart2HHLandfillValues] = React.useState([]);
   const [chart2Labels, setChart2Labels] = React.useState([]);
 
-  const [chart3Values, setChart3Values] = React.useState([]);
+  const [chart3LAValues, setChart3LAValues] = React.useState([]);
+  const [chart3HHValues, setChart3HHValues] = React.useState([]);
   const [chart3Labels, setChart3Labels] = React.useState([]);
 
-  const [chart4Values, setChart4Values] = React.useState([]);
+  const [chart4LAValues, setChart4LAValues] = React.useState([]);
+  const [chart4HHValues, setChart4HHValues] = React.useState([]);
   const [chart4Labels, setChart4Labels] = React.useState([]);
 
-  const [chart5RecycleValues, setChart5RecycleValues] = React.useState([]);
-  const [chart5LandfillValues, setChart5LandfillValues] = React.useState([]);
-  const [chart5Labels, setChart5Labels] = React.useState([]);
+  // const [chart5RecycleValues, setChart5RecycleValues] = React.useState([]);
+  // const [chart5LandfillValues, setChart5LandfillValues] = React.useState([]);
+  // const [chart5Labels, setChart5Labels] = React.useState([]);
 
-  const [chart6RecycleValues, setChart6RecycleValues] = React.useState([]);
-  const [chart6LandfillValues, setChart6LandfillValues] = React.useState([]);
-  const [chart6Labels, setChart6Labels] = React.useState([]);
+  // const [chart6RecycleValues, setChart6RecycleValues] = React.useState([]);
+  // const [chart6LandfillValues, setChart6LandfillValues] = React.useState([]);
+  // const [chart6Labels, setChart6Labels] = React.useState([]);
 
   useEffect (() => {
     if (finYearsItems.length === 0) {
@@ -82,22 +94,44 @@ function Home() {
     setKpiValue8Min(kpi_json_file.kpi_8_output.min_values[finYearsSelected]);
     setKpiValue8Max(kpi_json_file.kpi_8_output.max_values[finYearsSelected]);
 
-    setChart1Values(chart_json_file.chart_1[finYearsSelected].values);
+    // setChart1Values(chart_json_file.chart_1[finYearsSelected].values);
+    // setChart1Labels(chart_json_file.chart_1[finYearsSelected].labels);
+    // setChart2Values(chart_json_file.chart_2[finYearsSelected].values);
+    // setChart2Labels(chart_json_file.chart_2[finYearsSelected].labels);
+    // setChart3Values(chart_json_file.chart_3[finYearsSelected].values);
+    // setChart3Labels(chart_json_file.chart_3[finYearsSelected].labels);
+    // setChart4Values(chart_json_file.chart_4[finYearsSelected].values);
+    // setChart4Labels(chart_json_file.chart_4[finYearsSelected].labels);
+
+    setChart1HHValues(chart_json_file.chart_1[finYearsSelected].hh);
+    setChart1LAValues(chart_json_file.chart_1[finYearsSelected].la);
     setChart1Labels(chart_json_file.chart_1[finYearsSelected].labels);
-    setChart2Values(chart_json_file.chart_2[finYearsSelected].values);
+
+    setChart2HHReuseValues(chart_json_file.chart_2[finYearsSelected].hh.reuse);
+    setChart2LAReuseValues(chart_json_file.chart_2[finYearsSelected].la.reuse);
+    setChart2HHDryRecycleValues(chart_json_file.chart_2[finYearsSelected].hh.dry_recycle);
+    setChart2LADryRecycleValues(chart_json_file.chart_2[finYearsSelected].la.dry_recycle);
+    setChart2HHCompostValues(chart_json_file.chart_2[finYearsSelected].hh.compost);
+    setChart2LACompostValues(chart_json_file.chart_2[finYearsSelected].la.compost);
+    setChart2HHLandfillValues(chart_json_file.chart_2[finYearsSelected].hh.landfill);
+    setChart2LALandfillValues(chart_json_file.chart_2[finYearsSelected].la.landfill);
     setChart2Labels(chart_json_file.chart_2[finYearsSelected].labels);
-    setChart3Values(chart_json_file.chart_3[finYearsSelected].values);
-    setChart3Labels(chart_json_file.chart_3[finYearsSelected].labels);
-    setChart4Values(chart_json_file.chart_4[finYearsSelected].values);
-    setChart4Labels(chart_json_file.chart_4[finYearsSelected].labels);
 
-    setChart5RecycleValues(chart_json_file.chart_5[finYearsSelected].recycle_values);
-    setChart5LandfillValues(chart_json_file.chart_5[finYearsSelected].landfill_values);
-    setChart5Labels(chart_json_file.chart_5[finYearsSelected].labels);
+    // setChart3LAValues(chart_json_file.chart_3[finYearsSelected].la);
+    // setChart3HHValues(chart_json_file.chart_3[finYearsSelected].hh);
+    // setChart3Labels(chart_json_file.chart_3[finYearsSelected].labels);
 
-    setChart6RecycleValues(chart_json_file.chart_6.recycle_values);
-    setChart6LandfillValues(chart_json_file.chart_6.landfill_values);
-    setChart6Labels(chart_json_file.chart_6.labels);
+    // setChart4LAValues(chart_json_file.chart_4[finYearsSelected].la);
+    // setChart4HHValues(chart_json_file.chart_4[finYearsSelected].hh);
+    // setChart4Labels(chart_json_file.chart_4[finYearsSelected].labels);
+
+    // setChart5RecycleValues(chart_json_file.chart_5[finYearsSelected].recycle_values);
+    // setChart5LandfillValues(chart_json_file.chart_5[finYearsSelected].landfill_values);
+    // setChart5Labels(chart_json_file.chart_5[finYearsSelected].labels);
+
+    // setChart6RecycleValues(chart_json_file.chart_6.recycle_values);
+    // setChart6LandfillValues(chart_json_file.chart_6.landfill_values);
+    // setChart6Labels(chart_json_file.chart_6.labels);
 
   }, [finYearsSelected]);
 
@@ -187,12 +221,14 @@ function Home() {
                 <CRow>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Recycle rate (%) by Local Authority</CCardHeader>
+                      <CCardHeader className='TileTitle'>Recycle Rate (%) - LA vs HH</CCardHeader>
                       <CCardBody className='ChartContainer'>
-                        <BarChart 
+                        <CompareBarChart 
                           // chartData={chartData}
-                          chartTitle='Recycle Rate (%)'
-                          chartValues={chart1Values}
+                          chartLabel1='Household'
+                          chartValues1={chart1HHValues}
+                          chartLabel2='Local Authority'
+                          chartValues2={chart1LAValues}
                           chartLabels={chart1Labels}
                         />
                       </CCardBody>
@@ -200,19 +236,26 @@ function Home() {
                   </CCol>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Destination of Annual Waste - Household (Tonnes)</CCardHeader>
+                      <CCardHeader className='TileTitle'>Total Waste (Tonnes) - LA vs HH</CCardHeader>
                       <CCardBody className='ChartContainer'>
-                        <PieChart 
-                          chartData={chart2Values}
-                          chartLabels={chart2Labels}
-                        />
+                        <WasteDestBarChart 
+                            chart2LAReuseValues={chart2LAReuseValues}
+                            chart2LADryRecycleValues={chart2LADryRecycleValues}
+                            chart2LACompostValues={chart2LACompostValues}
+                            chart2LALandfillValues={chart2LALandfillValues}
+                            chart2HHReuseValues={chart2HHReuseValues}
+                            chart2HHDryRecycleValues={chart2HHDryRecycleValues}
+                            chart2HHCompostValues={chart2HHCompostValues}
+                            chart2HHLandfillValues={chart2HHLandfillValues}
+                            chart2Labels={chart2Labels}
+                          />
                       </CCardBody>
                     </CCard>
                   </CCol>
                 </CRow>
               </div>
 
-              <div className='large-tile-row-2'>
+              {/* <div className='large-tile-row-2'>
                 <CRow>
                   <CCol>
                     <CCard>
@@ -240,9 +283,9 @@ function Home() {
                     </CCard>
                   </CCol>
                 </CRow>
-              </div>
+              </div> */}
 
-              <div className='large-tile-row-2'>
+              {/* <div className='large-tile-row-2'>
                 <CRow>
                   <CCol>
                     <CCard>
@@ -273,7 +316,7 @@ function Home() {
                     </CCard>
                   </CCol>
                 </CRow>
-              </div>
+              </div> */}
               
 
         </div>
