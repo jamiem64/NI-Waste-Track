@@ -2,19 +2,28 @@ import React from 'react';
 import { CCard, CCardBody, CCardHeader, CCol, CRow, CDropdown, 
       CDropdownToggle, CDropdownMenu, CDropdownItem, CDropdownDivider,
       CButton, CFormSelect } from '@coreui/react';
-import "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/App.css";
+// import "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/App.css";
+import '../../App.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
 
 import BarChart from "../charts/BarChart.jsx";
 // "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx"
-import PieChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/PieChart.jsx';
-import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx';
+// import PieChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/PieChart.jsx';
+import PieChart from '../charts/PieChart.jsx';
+import StackedBarChart from '../charts/StackedBarChart.jsx';
 import CompareBarChart from '../charts/CompareBarChart.jsx';
-import WasteDestBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/WasteDestBar.jsx';
+import WasteDestBarChart from '../charts/WasteDestBar.jsx';
 
-import kpi_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/kpi_json_file.json';
-import selectable_fin_years from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/selectable_fin_years.json';
-import chart_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/chart_json_file.json';
+// import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx'; // '../charts/StackedBarChart.jsx';
+// import WasteDestBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/WasteDestBar.jsx';
+
+import kpi_json_file from '../data/kpi_json_file.json';
+import selectable_fin_years from '../data/selectable_fin_years.json';
+import chart_json_file from '../data/chart_json_file.json';
+
+// import kpi_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/kpi_json_file.json';
+// import selectable_fin_years from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/selectable_fin_years.json';
+// import chart_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/chart_json_file.json';
 
 import { useEffect, useState } from 'react';
 
