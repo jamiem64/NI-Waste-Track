@@ -2,32 +2,30 @@ import React from 'react';
 import { CCard, CCardBody, CCardHeader, CCol, CRow, CDropdown, 
       CDropdownToggle, CDropdownMenu, CDropdownItem, CDropdownDivider,
       CButton, CFormSelect } from '@coreui/react';
-// import "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/App.css";
 import '../../App.css';
 import '@coreui/coreui/dist/css/coreui.min.css';
 
 import BarChart from "../charts/BarChart.jsx";
-// "/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx"
-// import PieChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/PieChart.jsx';
 import PieChart from '../charts/PieChart.jsx';
 import StackedBarChart from '../charts/StackedBarChart.jsx';
 import CompareBarChart from '../charts/CompareBarChart.jsx';
 import WasteDestBarChart from '../charts/WasteDestBar.jsx';
 
-// import StackedBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/StackedBarChart.jsx'; // '../charts/StackedBarChart.jsx';
-// import WasteDestBarChart from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/components/charts/WasteDestBar.jsx';
+// import kpi_json_file from '../data/kpi_json_file.json';
+import per_capita_kpi_json_file from '../data/per_capita_kpi_json_file.json';
 
-import kpi_json_file from '../data/kpi_json_file.json';
 import selectable_fin_years from '../data/selectable_fin_years.json';
-import chart_json_file from '../data/chart_json_file.json';
 
-// import kpi_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/kpi_json_file.json';
-// import selectable_fin_years from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/selectable_fin_years.json';
-// import chart_json_file from '/Users/jamiemccay/Desktop/Personal/Projects/OuterHeaven/frontend/src/data/chart_json_file.json';
+// import chart_json_file from '../data/chart_json_file.json';
+// import standard_chart_json_file from '../data/standard_chart_json_file.json';
+import per_capita_chart_json_file from '../data/per_capita_chart_json_file.json';
 
 import { useEffect, useState } from 'react';
 
 function Home() {
+  let chart_json_file = per_capita_chart_json_file
+  let kpi_json_file = per_capita_kpi_json_file
+
   const [finYearsSelected, setFinYearsSelected] = React.useState("2022/23");
   const [finYearPanel, setFinYearPanel] = React.useState("2022/23");
 
@@ -50,6 +48,8 @@ function Home() {
   const [chart1LAValues, setChart1LAValues] = React.useState([]);
   const [chart1HHValues, setChart1HHValues] = React.useState([]);
   const [chart1Labels, setChart1Labels] = React.useState([]);
+  const [chart1AvgLAValues, setChart1AvgLAValues] = React.useState(0);
+  const [chart1AvgHHValues, setChart1AvgHHValues] = React.useState(0);
 
   const [chart2LAReuseValues, setChart2LAReuseValues] = React.useState([]);
   const [chart2HHReuseValues, setChart2HHReuseValues] = React.useState([]);
@@ -64,14 +64,23 @@ function Home() {
   const [chart3LAValues, setChart3LAValues] = React.useState([]);
   const [chart3HHValues, setChart3HHValues] = React.useState([]);
   const [chart3Labels, setChart3Labels] = React.useState([]);
+  const [chart3AvgLAValues, setChart3AvgLAValues] = React.useState(0);
+  const [chart3AvgHHValues, setChart3AvgHHValues] = React.useState(0);
 
   const [chart4LAValues, setChart4LAValues] = React.useState([]);
   const [chart4HHValues, setChart4HHValues] = React.useState([]);
   const [chart4Labels, setChart4Labels] = React.useState([]);
+  const [chart4AvgLAValues, setChart4AvgLAValues] = React.useState(0);
+  const [chart4AvgHHValues, setChart4AvgHHValues] = React.useState(0);
 
   const [chart5RecycleValues, setChart5RecycleValues] = React.useState([]);
   const [chart5LandfillValues, setChart5LandfillValues] = React.useState([]);
   const [chart5Labels, setChart5Labels] = React.useState([]);
+  const [chart5AvgRecycleValues, setChart5AvgRecycleValues] = React.useState(0);
+  const [chart5AvgLandfillValues, setChart5AvgLandfillValues] = React.useState(0);
+
+  const [chart6Values, setChart6Values] = React.useState([]);
+  const [chart6Labels, setChart6Labels] = React.useState([]);
 
   const [trendChart1RecycleValues, setTrendChart1RecycleValues] = React.useState([]);
   const [trendChart1LandfillValues, setTrendChart1LandfillValues] = React.useState([]);
@@ -86,10 +95,6 @@ function Home() {
   const [trendChart2LALandfillValues, setTrendChart2LALandfillValues] = React.useState([]);
   const [trendChart2HHLandfillValues, setTrendChart2HHLandfillValues] = React.useState([]);
   const [trendChart2Labels, setTrendChart2Labels] = React.useState([]);
-
-  // const [chart6RecycleValues, setChart6RecycleValues] = React.useState([]);
-  // const [chart6LandfillValues, setChart6LandfillValues] = React.useState([]);
-  // const [chart6Labels, setChart6Labels] = React.useState([]);
 
   useEffect (() => {
     if (finYearsItems.length === 0) {
@@ -129,6 +134,8 @@ function Home() {
     setChart1HHValues(chart_json_file.chart_1[finYearsSelected].hh);
     setChart1LAValues(chart_json_file.chart_1[finYearsSelected].la);
     setChart1Labels(chart_json_file.chart_1[finYearsSelected].labels);
+    setChart1AvgLAValues(chart_json_file.chart_1[finYearsSelected].avg_la);
+    setChart1AvgHHValues(chart_json_file.chart_1[finYearsSelected].avg_hh);
 
     setChart2HHReuseValues(chart_json_file.chart_2[finYearsSelected].hh.reuse);
     setChart2LAReuseValues(chart_json_file.chart_2[finYearsSelected].la.reuse);
@@ -143,14 +150,23 @@ function Home() {
     setChart3LAValues(chart_json_file.chart_3[finYearsSelected].la);
     setChart3HHValues(chart_json_file.chart_3[finYearsSelected].hh);
     setChart3Labels(chart_json_file.chart_3[finYearsSelected].labels);
+    setChart3AvgLAValues(chart_json_file.chart_3[finYearsSelected].avg_la);
+    setChart3AvgHHValues(chart_json_file.chart_3[finYearsSelected].avg_hh);
 
     setChart4LAValues(chart_json_file.chart_4[finYearsSelected].la);
     setChart4HHValues(chart_json_file.chart_4[finYearsSelected].hh);
     setChart4Labels(chart_json_file.chart_4[finYearsSelected].labels);
+    setChart4AvgLAValues(chart_json_file.chart_4[finYearsSelected].avg_la);
+    setChart4AvgHHValues(chart_json_file.chart_4[finYearsSelected].avg_hh);
 
     setChart5RecycleValues(chart_json_file.chart_5[finYearsSelected].recycle_values);
     setChart5LandfillValues(chart_json_file.chart_5[finYearsSelected].landfill_values);
     setChart5Labels(chart_json_file.chart_5[finYearsSelected].labels);
+    setChart5AvgRecycleValues(chart_json_file.chart_5[finYearsSelected].avg_recycle);
+    setChart5AvgLandfillValues(chart_json_file.chart_5[finYearsSelected].avg_landfill);
+
+    setChart6Values(chart_json_file.chart_6[finYearsSelected].values);
+    setChart6Labels(chart_json_file.chart_6[finYearsSelected].labels);
 
     setTrendChart1RecycleValues(chart_json_file.trend_chart_1.recycle_values);
     setTrendChart1LandfillValues(chart_json_file.trend_chart_1.landfill_values);
@@ -259,8 +275,10 @@ function Home() {
                         <CompareBarChart 
                           chartLabel1='Household'
                           chartValues1={chart1HHValues}
+                          chartAvg1={chart1AvgHHValues}
                           chartLabel2='Local Authority'
                           chartValues2={chart1LAValues}
+                          chartAvg2={chart1AvgLAValues}
                           chartLabels={chart1Labels}
                         />
                       </CCardBody>
@@ -268,7 +286,7 @@ function Home() {
                   </CCol>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Breakdown of Waste Destination (Tonnes) - LA vs HH</CCardHeader>
+                      <CCardHeader className='TileTitle'>Breakdown of Waste Destination (Tonnes) - LA vs HH (Per Capita)</CCardHeader>
                       <CCardBody className='ChartContainer'>
                         <WasteDestBarChart 
                             chart2LAReuseValues={chart2LAReuseValues}
@@ -291,13 +309,15 @@ function Home() {
                 <CRow>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Total Waste (Tonnes) - LA vs HH</CCardHeader>
+                      <CCardHeader className='TileTitle'>Total Waste (Tonnes) - LA vs HH (Per Capita)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <CompareBarChart 
                             chartLabel1='Household'
                             chartValues1={chart3HHValues}
+                            chartAvg1={chart3AvgHHValues}
                             chartLabel2='Local Authority'
                             chartValues2={chart3LAValues}
+                            chartAvg2={chart3AvgLAValues}
                             chartLabels={chart3Labels}
                           />
                       </CCardBody>
@@ -305,13 +325,15 @@ function Home() {
                   </CCol>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Total Landfill Waste (Tonnes) - LA vs HH</CCardHeader>
+                      <CCardHeader className='TileTitle'>Total Landfill Waste (Tonnes) - LA vs HH (Per Capita)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <CompareBarChart 
                               chartLabel1='Household'
                               chartValues1={chart4HHValues}
+                              chartAvg1={chart4AvgHHValues}
                               chartLabel2='Local Authority'
                               chartValues2={chart4LAValues}
+                              chartAvg2={chart4AvgLAValues}
                               chartLabels={chart4Labels}
                             />
                         </CCardBody>
@@ -324,13 +346,15 @@ function Home() {
                 <CRow>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Total to Landfill vs Total to Recycling (Tonnes) - by LA</CCardHeader>
+                      <CCardHeader className='TileTitle'>Total to Landfill vs Total to Recycling (Tonnes) - by LA (Per Capita)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <CompareBarChart 
                               chartLabel1='To Recycling'
                               chartValues1={chart5RecycleValues}
+                              chartAvg1={chart5AvgRecycleValues}
                               chartLabel2='To Landfill'
                               chartValues2={chart5LandfillValues}
+                              chartAvg2={chart5AvgLandfillValues}
                               chartLabels={chart5Labels}
                             />
                       </CCardBody>
@@ -338,15 +362,12 @@ function Home() {
                   </CCol>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>? ? ?</CCardHeader>
+                      <CCardHeader className='TileTitle'>Destination of Waste in NI (Actual)</CCardHeader>
                         <CCardBody className='ChartContainer'>
-                          {/* <StackedBarChart
-                            chartTitle1='Avg. Recycled (Tonnes)'
-                            chartValues1={chart6RecycleValues}
-                            chartTitle2='Avg. Landfill (Tonnes)'
-                            chartValues2={chart6LandfillValues}
-                            chartLabels={chart6Labels}
-                          /> */}
+                          <PieChart 
+                              chartData={chart6Values}
+                              chartLabels={chart6Labels}
+                          />
                         </CCardBody>
                     </CCard>
                   </CCol>
@@ -363,7 +384,7 @@ function Home() {
                 <CRow>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Total to Landfill vs Total to Recycling, Trend (Tonnes) - by LA</CCardHeader>
+                      <CCardHeader className='TileTitle'>Total to Landfill vs Total to Recycling, Trend (Tonnes) - by LA (Per Capita)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <CompareBarChart 
                               chartLabel1='To Recycling'
@@ -377,7 +398,7 @@ function Home() {
                   </CCol>
                   <CCol>
                     <CCard>
-                      <CCardHeader className='TileTitle'>Breakdown of Waste Destination, Trend (Tonnes)</CCardHeader>
+                      <CCardHeader className='TileTitle'>Breakdown of Waste Destination, Trend (Tonnes) (Per Capita)</CCardHeader>
                         <CCardBody className='ChartContainer'>
                           <WasteDestBarChart 
                               chart2LAReuseValues={trendChart2LAReuseValues}

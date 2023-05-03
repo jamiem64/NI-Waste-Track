@@ -52,43 +52,56 @@ function WasteDestBarChart(props) {
       {
         label: 'Reuse (LA)',
         data: LAReuseValues,
-        stack: "Local Authority"
+        stack: "Local Authority",
+        backgroundColor: 'rgba(255, 99, 132)',
       }, 
       {
         label: 'Dry Recycle (LA)',
         data: LADryRecycleValues,
-        stack: "Local Authority"
+        stack: "Local Authority",
+        backgroundColor: 'rgba(54, 162, 235)',
       }, 
       {
         label: 'Compost (LA)',
         data: LACompostValues,
-        stack: "Local Authority"
+        stack: "Local Authority",
+        backgroundColor: 'rgba(255, 159, 64)',
       }, 
       {
         label: 'Landfill (LA)',
         data: LALandfillValues,
-        stack: "Local Authority"
+        stack: "Local Authority",
+        backgroundColor: 'rgba(75, 192, 192)',
       }, 
       {
         label: 'Reuse (HH)',
         data: HHReuseValues,
-        stack: "Household"
+        stack: "Household",
+        backgroundColor: 'rgba(153, 102, 255)',
       }, 
       {
         label: 'Dry Recycle (HH)',
         data: HHDryRecycleValues,
-        stack: "Household"
+        stack: "Household",
+        backgroundColor: 'rgba(201, 203, 207)',
       }, 
       {
         label: 'Compost (HH)',
         data: HHCompostValues,
-        stack: "Household"
+        stack: "Household",
+        backgroundColor: 'rgba(255, 205, 86)',
       }, 
       {
         label: 'Landfill (HH)',
         data: HHLandfillValues,
-        stack: "Household"
+        stack: "Household",
+        backgroundColor: 'rgba(54, 235, 162)',
       }, 
+      // {
+      //   label: 'TEST AVERAGE',
+      //   data: [30000, 30000, 30000, 30000, 30000, 30000, 30000, 30000],
+      //   type: 'line',
+      // }
     ],
     // labels: chartLabels
     labels: chartLabels
