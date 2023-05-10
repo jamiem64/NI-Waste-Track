@@ -19,19 +19,6 @@
     border-bottom: 1px solid #1c4130;
 }
 
-.PageHeader {
-    color: #ffffff;
-    font-size: 2.5em;
-    font-family: FF Kava, sans-serif;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-    padding-top: 4vh;
-    padding-left: 2vw;
-    /* font: 2.5em 'FF', sans-serif; */
-    /* align-items: center; */
-}
-
 .small-tile-row-3 {
     /* display: flex; */
     flex-direction: row;
@@ -223,7 +210,57 @@
     /* padding-left: 5px; */
 }
 
-/* .PieChart {
-    z-index: 0;
-    position:relative;
-} */
+.NavBar {
+    display: flex;
+    flex-direction: row;
+}
+
+.NavBarButton {
+    color: #ffffff;
+    font-size: 2em;
+    font-family: FF Kava, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 5vh;
+    padding-left: 2vw;
+    /* font: 2.5em 'FF', sans-serif; */
+    /* align-items: center; */
+}
+
+.PageHeader {
+    color: #ffffff;
+    font-size: 2.5em;
+    font-family: FF Kava, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 4vh;
+    padding-left: 2vw;
+    /* margin-bottom: 2px; */
+    /* font: 2.5em 'FF', sans-serif; */
+    /* align-items: center; */
+}
+
+.NavBarDivider {
+    color: #ffffff;
+    font-size: 2em;
+    font-family: FF Kava, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-top: 5vh;
+    padding-left: 2vw;
+    /* font: 2.5em 'FF', sans-serif; */
+    /* align-items: center; */
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    /* width: 70%; */
+  }
