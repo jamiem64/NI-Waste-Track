@@ -186,9 +186,9 @@ function Home() {
 
     return (
         <div>
-            <div className='PageHeaderBar'>
+            {/* <div className='PageHeaderBar'>
                 <div className='PageHeader'>Waste Track</div>
-            </div>
+            </div> */}
               <div className='ControlPanelKPIRow'>
                 <div className='ControlPanelKPIRowLeft'>
                   <CRow>
