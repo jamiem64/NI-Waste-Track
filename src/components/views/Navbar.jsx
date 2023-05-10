@@ -31,7 +31,7 @@ function Navbar() {
     <nav>
       <div className='PageHeaderBar'>
       <ul className="NavBar">
-          <div className='PageHeader'>Waste Track</div>
+          <div className='PageHeader'>WasteTrack</div>
           <div className="NavBarDivider"></div>
           <Link className="NavBarButton" style={{ textDecoration: "none", color: homeColor }} onClick={navToHome} to="/">Home</Link>
           <Link className="NavBarButton" style={{ textDecoration: "none", color: aboutColor }} onClick={navToAbout} to="/about">About</Link>
